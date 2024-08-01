@@ -31,3 +31,21 @@ Consider the following, for instance leaving comments close to where this is rel
 - How monitoring and logging could be implemented
 - SSR and SSG
 - Possible infrastructure setup to help with the above
+
+
+## Rikki's Follow Up notes:
+
+### Optimization related
+- Pagination/Infinite loading is key for scalability
+    - users cannot load lots of posts at once, and especially not all the posts and all their comments at once as the platform scales
+    - especially if SSR is important
+        - optimizing per tag or other topical pages
+        - pagination for user profiles of posts
+    
+- SSR or even SSG (edge + SSR is almost like SSG?) should be the most important content with the fewest cache-key deltas as possible - for example detecting locale server side if possible, however a custom feed for a user's subscriptions may be harder to justify caching, but there are reasons why you might need this
+- I saw there was an article recently that argued that SQLLite is overlooked for production workloads, might be worth looking into, but I would use it more likely for testing,and postgres for development and devops environments. I would open to using a wide arrange of databases based on other factors and needs the app might have.
+
+### Application/Observability related
+- filtering for whether a post is public client side is not enough, it needs to be filtered at the server side!
+- if Vercel, Render or Railway or other popular managed platforms, OpenTelemetry + Datadog are good options for observability
+- sentry or similar are useful for ensuring processes or the browser client are not crashing
