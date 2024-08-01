@@ -1,3 +1,6 @@
+
+
+
 # Fanvue's Fullstack challenge
 
 Setup the project:
@@ -49,3 +52,5 @@ Consider the following, for instance leaving comments close to where this is rel
 - filtering for whether a post is public client side is not enough, it needs to be filtered at the server side!
 - if Vercel, Render or Railway or other popular managed platforms, OpenTelemetry + Datadog are good options for observability
 - sentry or similar are useful for ensuring processes or the browser client are not crashing
+
+![image](https://github.com/user-attachments/assets/b99f935f-ec5a-4966-9663-53d50c24bc42)
